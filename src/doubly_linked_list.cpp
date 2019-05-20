@@ -4,7 +4,7 @@
  */
 #include <cstdio>
 
-template <class T>
+template <typename T>
 class my_list {
 public:
 	class node {
