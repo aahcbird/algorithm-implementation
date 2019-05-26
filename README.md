@@ -7,7 +7,7 @@ C++로 쓰여진 자료구조입니다.
 
 |-- src <br>
 &emsp;|-- sort <br>
-&emsp;&emsp;|-- quick-sort.cpp <br>
+&emsp;&emsp;|-- quick_sort.cpp <br>
 &emsp;|-- tree-family <br>
 &emsp;&emsp;|-- trie.cpp <br>
 &emsp;|-- babylonian.cpp <br>
