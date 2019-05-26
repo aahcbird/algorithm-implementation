@@ -6,12 +6,10 @@ C++로 쓰여진 자료구조입니다.
 ## File Structure
 
 |-- src <br>
->|-- sort <br>
->>|-- quick-sort.cpp <br>
-
->|-- tree-family <br>
->>|-- trie.cpp <br>
-
+&emsp;|-- sort <br>
+&emsp;&emsp;|-- quick-sort.cpp <br>
+&emsp;|-- tree-family <br>
+&emsp;&emsp;|-- trie.cpp <br>
 |-- babylonian.cpp <br>
 |-- doubly_linked_list.cpp <br>
 |-- euclidean.cpp <br>
