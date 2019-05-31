@@ -10,7 +10,7 @@ public:
 	my_vector() : cpct_(10), size_(0) {
 		arr_ = new T[cpct_]();
 	}
-	my_vector(int cpct_) : cpct_(cpct_), size_(0) {
+	my_vector(int cpct) : cpct_(cpct), size_(0) {
 		arr_ = new T[cpct_]();
 	}
 	~my_vector() {
