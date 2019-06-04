@@ -1,22 +1,28 @@
 /*	
 *	Author : aahcbird
-*	Created : 19/05/24
+*	Created : 19/06/04
 */
 #include <cstdio>
 #include <ctime>
 #include <cstdlib>
 
-void swap(int *p1, int *p2) {
-	int tmp = *p1;
+bool cmp(int &a, int &b) {
+	return a < b;
+}
+
+template <typename It>
+void swap(It *p1, It *p2) {
+	It tmp = *p1;
 	*p1 = *p2;
 	*p2 = tmp;
 }
 
-void insertion_sort(int *begin, int *end) {
-	int *idx = begin;
+template <typename It, typename Comp>
+void insertion_sort(It *begin, It *end, Comp cmp) {
+	It *idx = begin;
 
 	while (idx < end) {
-		int *tmp = idx;
+		It *tmp = idx;
 		while (tmp > begin && *tmp < *(tmp - 1)) {
 			swap(tmp, tmp-1);
 			--tmp;
@@ -25,11 +31,12 @@ void insertion_sort(int *begin, int *end) {
 	}
 }
 
-void quick_sort(int *begin, int *end) {
+template <typename It, typename Comp>
+void quick_sort(It *begin, It *end, Comp cmp) {
 	if (begin >= end) return;
 
 	if (end - begin <= 15) {
-		insertion_sort(begin, end);
+		insertion_sort(begin, end, cmp);
 		return;
 	}
 
@@ -40,22 +47,22 @@ void quick_sort(int *begin, int *end) {
 	for (int i = 0; i < rand_size; ++i) {
 		rand_arr[i] = rand() % (end - begin);
 	}
-	insertion_sort(rand_arr, rand_arr + rand_size);
+	insertion_sort(rand_arr, rand_arr + rand_size, cmp);
 
 	swap(begin + rand_arr[rand_size/2], end - 1);
 
 	delete []rand_arr;
 
-	int *pivot = end - 1;
-	int p_val = *pivot;
-	int *left = begin;
-	int *right = end - 1;
+	It *pivot = end - 1;
+	It p_val = *pivot;
+	It *left = begin;
+	It *right = end - 1;
 
 	while (left < right) {
-		while (left < right && *left <= p_val) {
+		while (left < right && !cmp(p_val, *left)) {
 			++left;
 		}
-		while (left < right && *right >= p_val) {
+		while (left < right && !cmp(*right, p_val)) {
 			--right;
 		}
 		if (left < right) {
@@ -65,6 +72,6 @@ void quick_sort(int *begin, int *end) {
 
 	swap(left, pivot);
 
-	quick_sort(begin, left);
-	quick_sort(left+1, end);
+	quick_sort(begin, left, cmp);
+	quick_sort(left+1, end, cmp);
 }
