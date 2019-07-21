@@ -39,7 +39,7 @@ public:
 		arr_ = new T[cpct_]();
 	}
 
-	void push_back(T val) {
+	void push_back(T &val) {
 		if (cpct_ <= size_) {
 			resize(cpct_*2);
 		}
