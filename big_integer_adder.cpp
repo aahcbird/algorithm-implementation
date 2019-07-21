@@ -2,9 +2,9 @@ char* add(char *a, char *b) {
 	int al = 0, bl = 0, cr = 0;
 	while (a[++al]);
 	while (b[++bl]);
-	--al; --bl;
-	int cl = al > bl ? al : bl;
+	int cl = al > bl ? al+1 : bl+1;
 	char *tmp = new char[cl+1]();
+	--al; --bl;
 
 	while (al >= 0 || bl >= 0 || cr) {
 		if (al >= 0) cr += a[al--] - '0';
