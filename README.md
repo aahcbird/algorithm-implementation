@@ -19,6 +19,7 @@ C++로 쓰여진 자료구조입니다.
 &emsp;&emsp;|-- merge_sort.cpp <br>
 &emsp;&emsp;|-- quick_sort.cpp <br>
 &emsp;|-- tree-family <br>
+&emsp;&emsp;|-- fenwick.cpp <br>
 &emsp;&emsp;|-- trie.cpp <br>
 &emsp;|-- babylonian.cpp <br>
 &emsp;|-- big_integer_adder.cpp <br>
