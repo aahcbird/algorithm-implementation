@@ -1,62 +1,73 @@
-template <typename T>
-class my_vector {
-public:
-	my_vector() : my_vector(10) {}
-	my_vector(int cpct) : cpct_(cpct), size_(0) {
-		arr_ = new T[cpct_]();
+#define max(x, y) (((x)>(y))?(x):(y))
+
+template<typename T>
+struct mvector {
+	mvector() : cp(0), sz(0), buf(0) {}
+	mvector(int cp) : cp(0), sz(0), buf(0) {
+		reserve(cp, false);
 	}
-	~my_vector() {
-		delete []arr_;
+	mvector(int sz, const T &val) : cp(0), sz(0), buf(0) {
+		assign(sz, val);
+	}
+	~mvector() {
+		delete []buf;
 	}
 
-	int size() {
-		return size_;
-	}
-
-	void reserve(int new_cpct) {
-		cpct_ = new_cpct;
-		T *tmp = new T[new_cpct]();
-		for (int i = 0; i < size_; ++i) {
-			tmp[i] = arr_[i];
+	void reserve(int cp, bool copy) {
+		if (this->cp >= cp) return;
+		T *tmp = new T[cp];
+		if (copy) {
+			for (int i=0; i<sz; ++i) {
+				tmp[i] = buf[i];
+			}
 		}
-		delete []arr_;
-		arr_ = tmp;
+		delete []buf;
+		buf = tmp;
+		this->cp = cp;
 	}
 
-	void clear() {
-		delete []arr_;
-
-		cpct_ = 10;
-		size_ = 0;
-		arr_ = new T[cpct_]();
-	}
-
-	void push_back(const T &val) {
-		if (cpct_ <= size_) {
-			reserve(cpct_ * 2);
+	void assign(int sz, const T &val) {
+		if (this->cp < sz) reserve(sz, false);
+		for (int i=0; i<sz; ++i) {
+			buf[i] = val;
 		}
-
-		arr_[size_] = val;
-		++size_;
+		this->sz = sz;
 	}
 
-	void pop_back() {
-		--size_;
+	inline void push_back(const T &val) {
+		if (cp == sz) reserve(max(8, cp*2), true);
+		buf[sz++] = val;
 	}
 
-	T* begin() {
-		return arr_;
+	inline void pop_back() {
+		if (sz > 0) --sz;
 	}
 
-	T* end() {
-		return arr_ + size_;
+	inline T &back() {
+		return buf[sz-1];
 	}
 
-	T& operator [](int idx) {
-		return arr_[idx];
+	inline T &operator[](int idx) {
+		return buf[idx];
 	}
 
-	T *arr_;
-	int cpct_;
-	int size_;
+	inline T *begin() {
+		return buf;
+	}
+
+	inline T *end() {
+		return buf + sz;
+	}
+
+	inline int size() {
+		return sz;
+	}
+
+	inline void clear() {
+		sz = 0;
+	}
+
+	int cp; // capacity
+	int sz; // size
+	T *buf; // buffer array
 };
