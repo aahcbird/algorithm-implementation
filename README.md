@@ -13,9 +13,10 @@ Data structure written in c++
 &emsp;&emsp;|-- vector.cpp <br>
 &emsp;|-- map <br>
 &emsp;|-- math <br>
-&emsp;&emsp;|-- babylonian.cpp <br>
+&emsp;&emsp;|-- babylonian.cpp (Square root)<br>
 &emsp;&emsp;|-- big_integer_adder.cpp <br>
-&emsp;&emsp;|-- euclidean.cpp <br>
+&emsp;&emsp;|-- euclidean.cpp (GCD)<br>
+&emsp;&emsp;|-- zeller.cpp (Date to Day of Week)<br>
 &emsp;|-- set <br>
 &emsp;&emsp;|-- unordered_set(hash_set).cpp <br>
 &emsp;&emsp;|-- disjoint_set(union_find).cpp <br>
