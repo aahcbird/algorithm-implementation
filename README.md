@@ -9,17 +9,17 @@ Data structure written in c++
 &emsp;|-- list <br>
 &emsp;&emsp;|-- circular_queue.cpp <br>
 &emsp;&emsp;|-- doubly_linked_list.cpp <br>
-&emsp;&emsp;|-- max_heap.cpp <br>
+&emsp;&emsp;|-- max_heap.cpp (priority queue)<br>
 &emsp;&emsp;|-- vector.cpp <br>
 &emsp;|-- map <br>
 &emsp;|-- math <br>
-&emsp;&emsp;|-- babylonian.cpp (Square root)<br>
+&emsp;&emsp;|-- babylonian.cpp (square root)<br>
 &emsp;&emsp;|-- big_integer_adder.cpp <br>
 &emsp;&emsp;|-- euclidean.cpp (GCD)<br>
-&emsp;&emsp;|-- zeller.cpp (Date to Day of Week)<br>
+&emsp;&emsp;|-- zeller.cpp (date -> day of week)<br>
 &emsp;|-- set <br>
-&emsp;&emsp;|-- unordered_set(hash_set).cpp <br>
-&emsp;&emsp;|-- disjoint_set(union_find).cpp <br>
+&emsp;&emsp;|-- unordered_set.cpp (hash set)<br>
+&emsp;&emsp;|-- disjoint_set.cpp (union find)<br>
 &emsp;|-- sort <br>
 &emsp;&emsp;|-- merge_sort.cpp <br>
 &emsp;&emsp;|-- quick_sort.cpp <br>
